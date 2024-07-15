@@ -45,7 +45,7 @@ const Pytanie = mongoose.model('Pytanie', PytanieSchema);
 app.get('/test', async (req, res) => {
     try {
       const pytania = await Pytanie.find();
-      res.status(200).send(test);
+      res.status(200).send(pytania);
     } catch (error) {
       res.status(500).send(error);
     }
