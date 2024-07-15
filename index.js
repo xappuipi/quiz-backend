@@ -26,7 +26,6 @@ db.once('open', () => {
 });
 
 const PytanieSchema = new mongoose.Schema({
-    id: Int16Array,
     pytanie: String,
     odpowiedz: String,
   });
