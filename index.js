@@ -30,7 +30,7 @@ const PytanieSchema = new mongoose.Schema({
     odpowiedz: String,
   });
   
-const Pytanie = mongoose.model('Pytanie', PytanieSchema);
+const Pytanie = mongoose.model('Pytanie', PytanieSchema, 'test');
 
 // app.post('/users', async (req, res) => {
 //     const user = new User(req.body);
