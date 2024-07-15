@@ -14,7 +14,7 @@ app.listen(port, () => {
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/mydatabase', {
+mongoose.connect('mongodb://localhost:27017/test', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -42,7 +42,7 @@ const Pytanie = mongoose.model('Pytanie', PytanieSchema);
 //     }
 //   });
   
-app.get('/pytania', async (req, res) => {
+app.get('/test', async (req, res) => {
     try {
       const pytania = await Pytanie.find();
       res.status(200).send(users);
