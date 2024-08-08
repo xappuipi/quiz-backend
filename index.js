@@ -41,7 +41,17 @@ const Pytanie = mongoose.model('Pytanie', PytanieSchema, 'test');
 //       res.status(400).send(error);
 //     }
 //   });
+
+app.get('/lessons', async (req, res) => {
+  try {
+    const lessons = await mongoose.connection.db.listCollections().toArray();
+    res.status(200).json(lessons.map(lesson => lesson.name)); // Zwraca tylko nazwy kolekcji
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
   
+
 app.get('/test', async (req, res) => {
     try {
       const pytania = await Pytanie.find();
