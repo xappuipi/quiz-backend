@@ -43,3 +43,12 @@ db.once('open', async () => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+app.get('/lessons', async (req, res) => {
+  try {
+    const lessons = await mongoose.connection.db.listCollections().toArray();
+    res.status(200).json(lessons.map(lesson => lesson.name)); // Zwraca tylko nazwy kolekcji
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
